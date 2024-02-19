@@ -3,7 +3,6 @@ package com.nhnacademy.edu.springboot.springBootStudent.account.controller;
 import com.nhnacademy.edu.springboot.springBootStudent.account.domain.Account;
 import com.nhnacademy.edu.springboot.springBootStudent.account.service.AccountService;
 import com.nhnacademy.edu.springboot.springBootStudent.student.controller.ResultResponse;
-import com.nhnacademy.edu.springboot.springBootStudent.student.domain.Student;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
