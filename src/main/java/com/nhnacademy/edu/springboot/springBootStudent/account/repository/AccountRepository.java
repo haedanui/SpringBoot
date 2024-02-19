@@ -1,9 +1,9 @@
 package com.nhnacademy.edu.springboot.springBootStudent.account.repository;
 
 import com.nhnacademy.edu.springboot.springBootStudent.account.domain.Account;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface AccountRepository {
-    List<Account> findAll();
+public interface AccountRepository extends JpaRepository<Account, Long> {
 }

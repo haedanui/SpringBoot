@@ -19,6 +19,6 @@ public class NhnStudentService implements StudentService{
 
     @Override
     public List<Student> getStudent() {
-        return studentRepository.fineAll();
+        return studentRepository.findAll();
     }
 }
