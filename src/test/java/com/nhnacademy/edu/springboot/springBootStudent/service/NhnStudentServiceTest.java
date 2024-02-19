@@ -18,7 +18,7 @@ class NhnStudentServiceTest {
 
     @Test
     void testGetStudent() {
-        List<Student> actual = studentService.getStudent();
+        List<Student> actual = studentService.getStudents();
 
         Assertions.assertThat(actual).hasSize(2);
     }

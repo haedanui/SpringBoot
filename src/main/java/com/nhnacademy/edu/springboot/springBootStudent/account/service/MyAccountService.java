@@ -17,7 +17,29 @@ public class MyAccountService implements AccountService{
     }
 
     @Override
-    public List<Account> getAccount() {
+    public List<Account> getAccounts() {
         return accountRepository.findAll();
+    }
+
+    @Override
+    public Account getAccount(Long id) {
+        return accountRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Account createAccount(Account account) {
+        if(accountRepository.existsById(account.getId())){
+            throw new IllegalStateException("id : " + account.getId() + "값이 중복됩니다.");
+        }
+        return accountRepository.save(account);
+    }
+
+    @Override
+    public void deleteAccount(Long id) {
+        if (accountRepository.existsById(id)) {
+            accountRepository.deleteById(id);
+        }else{
+            throw new IllegalArgumentException("id : " + id + "값을 찾을 수 없습니다.");
+        }
     }
 }
