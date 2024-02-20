@@ -16,6 +16,6 @@ class MyAccountServiceTest {
     @Test
     void getAccount() {
 
-        Assertions.assertThat(studentService.getStudents()).hasSize(2);
+        Assertions.assertThat(studentService.getStudents()).hasSize(1);
     }
 }

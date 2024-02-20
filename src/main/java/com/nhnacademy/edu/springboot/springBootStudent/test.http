@@ -1,2 +1,65 @@
 GET http://localhost:8080/system/version
 Accept: application/json
+
+
+
+
+
+
+###
+GET http://localhost:8080/actuator
+Accept: application/json
+
+
+
+
+
+###
+GET http://localhost:8080/actuator/health
+Accept: application/json
+
+###
+POST http://localhost:8080/management/fail
+Accept: application/json
+
+
+
+
+
+###
+GET http://localhost:8080/actuator/beans
+Accept: application/json
+
+###
+GET http://localhost:8080/actuator/configprops
+Accept: application/json
+
+###
+GET http://localhost:8080/actuator/counter
+Accept: application/json
+
+###
+POST http://localhost:8080/actuator/counter
+Content-Type: application/json
+
+{
+  "delta": 100
+}
+
+
+###
+DELETE http://localhost:8080/actuator/counter
+Content-Type: application/json
+
+
+###
+GET http://localhost:8888/actuator2/info
+Content-Type: application/json
+
+
+
+
+###
+GET http://localhost:8080/actuator/prometheus
+Content-Type: application/json
+

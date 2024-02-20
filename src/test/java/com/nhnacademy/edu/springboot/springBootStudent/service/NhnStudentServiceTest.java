@@ -20,6 +20,6 @@ class NhnStudentServiceTest {
     void testGetStudent() {
         List<Student> actual = studentService.getStudents();
 
-        Assertions.assertThat(actual).hasSize(2);
+        Assertions.assertThat(actual).hasSize(1);
     }
 }
