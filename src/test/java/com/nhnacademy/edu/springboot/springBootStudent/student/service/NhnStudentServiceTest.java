@@ -1,4 +1,4 @@
-package com.nhnacademy.edu.springboot.springBootStudent.service;
+package com.nhnacademy.edu.springboot.springBootStudent.student.service;
 
 import com.nhnacademy.edu.springboot.springBootStudent.student.domain.Student;
 import com.nhnacademy.edu.springboot.springBootStudent.student.service.StudentService;

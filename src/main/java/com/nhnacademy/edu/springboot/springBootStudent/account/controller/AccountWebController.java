@@ -1,7 +1,6 @@
 package com.nhnacademy.edu.springboot.springBootStudent.account.controller;
 
 import com.nhnacademy.edu.springboot.springBootStudent.account.domain.Account;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

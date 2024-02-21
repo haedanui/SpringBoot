@@ -28,12 +28,12 @@ public class AccountController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Account createStudent(@RequestBody Account account){
+    public Account createAccount(@RequestBody Account account){
         return accountService.createAccount(account);
     }
 
     @DeleteMapping("/{id}")
-    public ResultResponse deleteStudent(@PathVariable("id") Long id){
+    public ResultResponse deleteAccount(@PathVariable("id") Long id){
         accountService.deleteAccount(id);
         return new ResultResponse("OK");
     }
