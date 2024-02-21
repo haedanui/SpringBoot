@@ -1,6 +1,7 @@
-package com.nhnacademy.edu.springboot.springBootStudent.student.controller;
+package com.nhnacademy.edu.springboot.springBootStudent.account.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nhnacademy.edu.springboot.springBootStudent.account.domain.Account;
 import com.nhnacademy.edu.springboot.springBootStudent.student.domain.Student;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -11,7 +12,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -22,49 +22,50 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class StudentControllerTest {
-
+class AccountControllerTest {
     @Autowired
     MockMvc mockMvc;
 
     @Test
     @Order(1)
-    void testGetStudents() throws Exception{
-        mockMvc.perform(get("/students"))
+    void testGetAccounts() throws Exception{
+        mockMvc.perform(get("/accounts"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$[0].name", equalTo("zbum")));
+                .andExpect(jsonPath("$[0].number", equalTo("RyuSeungJin")));
     }
 
     @Test
     @Order(2)
-    void testGetStudent() throws Exception{
-        mockMvc.perform(get("/students/{id}", 1L))
+    void testGetAccount() throws Exception{
+        mockMvc.perform(get("/accounts/{id}", 1L))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.name", equalTo("zbum")));
+                .andExpect(jsonPath("$.number", equalTo("RyuSeungJin")));
     }
+
 
     @Test
     @Order(3)
-    void testCreateStudent() throws Exception{
-        Student input = new Student(998L, "haedanui", 100);
+    void testCreateAccount() throws Exception{
+        Account input = new Account(998L, "haedanui", 19721121);
         ObjectMapper objectMapper = new ObjectMapper();
 
-        mockMvc.perform(post("/students")
-                .content(objectMapper.writeValueAsString(input))
-                .contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(status().isCreated())
+        mockMvc.perform(post("/accounts")
+                        .content(objectMapper.writeValueAsString(input))
+                        .contentType(MediaType.APPLICATION_JSON)
+                ).andExpect(status().isCreated())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.name", equalTo("haedanui")))
-                .andExpect(jsonPath("$.score", equalTo(100)));
+                .andExpect(jsonPath("$.number", equalTo("haedanui")))
+                .andExpect(jsonPath("$.balance", equalTo(19721121)));
     }
 
     @Test
     @Order(4)
-    void testDeleteStudent() throws Exception{
-        mockMvc.perform(delete("/students/{id}", 998L))
+    void testDeleteAccount() throws Exception{
+        mockMvc.perform(delete("/accounts/{id}", 998L))
                 .andExpect(status().isOk());
     }
+
 
 }
